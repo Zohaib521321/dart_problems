@@ -1,0 +1,62 @@
+//Consider two propositions p and q. Define the following compound propositions:
+// A=p∧q
+// B=¬p∨q
+// C=p→q
+// D=p⟺q
+//shows the truth values of
+// p, q, and the four compound propositions  A, B,  C, and  D for all possible combinations
+// of truth values of
+// p and q.
+
+import 'dart:io';
+
+void main() {
+  List<bool> p = [true, true, false, false];
+  List<bool> q = [true, false, true, false];
+
+  for (int i = 0; i < p.length; i++) {    //p: q: A: B: C: D:  //   ..........
+    print("p:    q:   A:   B:  C:");
+    evaluatePropositions(p[i], q[i]);
+    print("");
+  print("...........................");
+  print("");
+  }
+}
+
+void evaluatePropositions(bool p, bool q) {
+  stdout.write("$p :");
+  stdout.write("$q :");
+  findA(p, q);
+  findB(p, q);
+  findC(p, q);
+  findD(p, q);
+}
+
+void findA(bool p, bool q) {
+  // A = p ∧ q
+  bool resultA = p && q;
+  // print("A = $p AND $q is ---> $resultA");
+  stdout.write("$resultA :");
+}
+
+void findB(bool p, bool q) {
+  // B = ¬p ∨ q
+  bool resultB = (!p) || q;
+  // print("B = NOT $p OR $q is ---> $resultB");
+  stdout.write("$resultB  :");
+}
+
+void findC(bool p, bool q) {
+  // C = p → q
+  // Equivalent to !p OR q
+  bool resultC = (!p) || q;
+  // print("C = $p implies $q is ---> $resultC");
+  stdout.write("$resultC :");
+}
+
+void findD(bool p, bool q) {
+  // D = p ⟺ q
+  bool resultD = p == q;
+  // print("D = $p is equal to $q is ---> $resultD");
+  stdout.write(resultD);
+}
